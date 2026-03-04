@@ -22,7 +22,8 @@ public final class Constants {
     public static final int right_shooter_id = 2; // need to change all of these
     public static final int pivot_id = 4;
 
-    public static final double radius_of_wheels = 0.5; // need to change later
+    public static final double radius_of_wheels = 0.5;
+    public static final double heightofAprilTag = 1.6002; // need to change later
 
     public static final double SHOOTER_KP = 0.05; // need to change PIDs
     public static final double SHOOTER_KI = 0.0; 

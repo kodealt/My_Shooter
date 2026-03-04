@@ -37,7 +37,7 @@ public class Shooter_math {
         //Get your constants from the Constants file
         double limelightMountAngleDegrees = Constants.ShooterConstants.AngleOfLimeLight; 
         double limelightLensHeightInches = Constants.ShooterConstants.heightOfLimeLight; 
-        double goalHeightInches = Constants.ShooterConstants.heightOfTarget * 39.37; // convert meters to inches
+        double goalHeightInches = Constants.ShooterConstants.heightofAprilTag * 39.37; // convert meters to inches
 
         //Calculate the total angle to the target
         double angleToGoalDegrees = limelightMountAngleDegrees + targetOffsetAngle_Vertical;
@@ -61,7 +61,6 @@ public class Shooter_math {
     public double min_velocity(){
         distance = distanceFromGoal(); // Need to account for difference in the limelight's height and the shooter's height
         // distance  =  LimelightHelpers.getBotPose_TargetSpace("limelight")[0]; (can be used but is less reliable)
-
         velocity = Math.sqrt(gravity*(height_of_target+Math.sqrt(Math.pow(height_of_target, 2)+Math.pow(distance, 2)))); // The above formula is used to calculate the minimum velocity need to shoot the projectile. It is from a physics textbook.
         
         
