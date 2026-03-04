@@ -16,4 +16,28 @@ public final class Constants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
   }
+
+  public static class ShooterConstants {
+    public static final int left_shooter_id = 1;
+    public static final int right_shooter_id = 2; // need to change all of these
+    public static final int pivot_id = 3;
+
+    public static final double radius_of_wheels = 0.5; // need to change later
+
+    public static final double SHOOTER_KP = 0.05; // need to change PIDs
+    public static final double SHOOTER_KI = 0.0; 
+    public static final double SHOOTER_KD = 0.0;
+
+    public static final double AIM_KP = 0.05; // need to change PIDs
+    public static final double AIM_KI = 0.0;
+    public static final double AIM_KD = 0.0;
+
+
+    public static final double AngleOfLimeLight = 25; // need to change
+    public static final double heightOfLimeLight = 1;  // need to change
+    public static final double heightOfTarget = 2.1336; // 7 feet in meters (need to change)
+
+    public static final int LimeLightID_RED = 1;
+    public static final int LimeLightID_BLUE = 2;
+  }
 }
