@@ -17,7 +17,7 @@ public class Shooter_math {
         
         angle = 0; // the angle of the shooter in degrees
         
-        gravity = 9.81; // gravity in m/s^2
+        gravity = 9.81; // gravity in m/s^2 (thers no need for 2 decimal places)
         
         height_of_target = 1.6002; // the distance from the top of the robot to the target in the y direction in meters
 
@@ -25,6 +25,8 @@ public class Shooter_math {
 
         radius_of_wheels = 0.5;
     }
+
+    // holy chatgpt code </3
 
     public double distanceFromGoal(){ 
        if (!LimelightHelpers.getTV("limelight")) {
@@ -50,6 +52,8 @@ public class Shooter_math {
         //Update the global distance variable (converted to meters)
         distance = distanceFromLimelightToGoalInches / 39.37; 
         
+        // only one comment... why the hell is the names so long..
+
         return distance;
     }
 
@@ -61,19 +65,25 @@ public class Shooter_math {
     public double min_velocity(){
         distance = distanceFromGoal(); // Need to account for difference in the limelight's height and the shooter's height
         // distance  =  LimelightHelpers.getBotPose_TargetSpace("limelight")[0]; (can be used but is less reliable)
-        velocity = Math.sqrt(gravity*(height_of_target+Math.sqrt(Math.pow(height_of_target, 2)+Math.pow(distance, 2)))); // The above formula is used to calculate the minimum velocity need to shoot the projectile. It is from a physics textbook.
-        
+        // again, changed for readability
+        g = gravity;
+        h = height_of_target;
+        d = distance; // who named this 
+        dist = Math.sqrt(h * h + d * d);
+        velocity = Math.sqrt(g*(h+dist)); // The above formula is used to calculate the minimum velocity need to shoot the projectile. It is from a physics textbook.
+        // oh... didnt see this... whoops!
         
         return velocity;
     }
 
     public double min_angle(){
         distance = distanceFromGoal();
-
-        angle = Math.atan((height_of_target+Math.sqrt(Math.pow(height_of_target, 2)+Math.pow(distance, 2)))/distance); // min angle required to get to the distance
-        
-        return angle*(180/Math.PI); // convert radians to degrees
+	// fixed for readability
+	double h = height_of_target;
+	double d = distance;    
+	double dist = Math.sqrt(h * h + d * d);
+    angle = Math.atan((h + dist)/d); // min angle required to get to the distance --> actually terrible comment
+        // return angle
+        return Math.toDegrees(angle); // convert radians to degrees
     }
-
-    
 }
