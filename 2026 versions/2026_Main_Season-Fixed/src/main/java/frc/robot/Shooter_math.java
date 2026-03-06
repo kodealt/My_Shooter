@@ -62,9 +62,9 @@ public class Shooter_math {
 		const double radius = 3.0f; // radius in cm, TODO change this to actual radius
 		double r = radius * 0.01f; // divide by 100cm -> 1m	
 		// tangentional velocity is given by r * w, where w is the angular velocity, convert it to angluar vel:
-		// w = v/r, to convert rad to deg(?) div by 2pi
-		// w = v/(2*pi*r)
-		double rpm = v/(2*pi*r);
+		// w = v/r, to convert rad to deg(?) div by 2pi, multiply by 60 sec -> min
+		// w = 30*v/(pi*r)
+		double rpm = (v*30)/(pi*r);
 		return rpm;
 
 	}
