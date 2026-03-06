@@ -57,7 +57,17 @@ public class Shooter_math {
         return distance;
     }
 
+	public double vel_to_rpm(double v){
+		const double pi = Math.pi;
+		const double radius = 3.0f; // radius in cm, TODO change this to actual radius
+		double r = radius * 0.01f; // divide by 100cm -> 1m	
+		// tangentional velocity is given by r * w, where w is the angular velocity, convert it to angluar vel:
+		// w = v/r, to convert rad to deg(?) div by 2pi
+		// w = v/(2*pi*r)
+		double rpm = v/(2*pi*r);
+		return rpm;
 
+	}
 
 
     /** @return the minimum velocity needed to shoot the ball into the target
@@ -79,7 +89,7 @@ public class Shooter_math {
     public double min_angle(){
         distance = distanceFromGoal();
 	// fixed for readability
-	double h = height_of_target;
+    // double h = height_of_target;
 	double d = distance;    
 	double dist = Math.sqrt(h * h + d * d);
     angle = Math.atan((h + dist)/d); // min angle required to get to the distance --> actually terrible comment
